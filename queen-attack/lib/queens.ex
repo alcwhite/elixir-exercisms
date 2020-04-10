@@ -39,7 +39,7 @@ defmodule Queens do
   """
   @spec to_string(Queens.t()) :: String.t()
   def to_string(queens) do
-    row = Enum.map(1..8, fn _ -> "_" end)
+    row = String.graphemes(String.duplicate("_", 8))
     board = Enum.map(1..8, fn _ -> row end)
     board_with_white = if queens.white do
       insert_queen(queens.white, "W", board)
